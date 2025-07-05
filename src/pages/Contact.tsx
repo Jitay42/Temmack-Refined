@@ -116,15 +116,10 @@ const Contact = () => {
           >
             <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
               <img 
-                src="/logo/temmack-logo.png" 
+                src="/logo/Tmk logo.png" 
                 alt="Temmack Logo" 
                 className="w-12 h-12 object-contain brightness-0 invert"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'block';
-                }}
               />
-              <span className="text-white font-black text-xl hidden">TMK</span>
             </div>
           </motion.div>
           
