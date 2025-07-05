@@ -5,42 +5,10 @@ import { ArrowRight, Users, Target, Lightbulb, CheckCircle, Star, Quote } from '
 import { motion, AnimatePresence } from 'framer-motion';
 import RealisticModelBanner from '../components/RealisticModelBanner';
 import ServiceCards from '../components/ServiceCards';
+import ProfessionalTeamSection from '../components/ProfessionalTeamSection';
 
 const Home = () => {
   const { t } = useTranslation();
-
-  const teamMembers = [
-    {
-      name: 'Johanson Fred',
-      title: 'SEO & Social Media Strategist',
-      description: 'Bridges the gap between visibility and value through strategic content optimization and search-driven storytelling.',
-      image: '/team/johanson-fred.jpg'
-    },
-    {
-      name: 'Jennifer Omawumi',
-      title: 'Digital Marketer',
-      description: 'Architects growth strategies through data-driven campaigns and conversion-focused messaging that delivers measurable results.',
-      image: '/team/jennifer-omawumi.png'
-    },
-    {
-      name: 'Lex O\'Brien',
-      title: 'Chief HOD, AI Prompt Engineer',
-      description: 'Engineers AI-powered marketing systems that scale human creativity while maintaining authentic brand voice.',
-      image: '/team/lex-obrien.png'
-    },
-    {
-      name: 'David Akpovogaga',
-      title: 'UX/UI Designer & DevOps',
-      description: 'Crafts digital experiences that seamlessly blend aesthetic excellence with psychological conversion principles.',
-      image: '/team/david-akpovogaga.png'
-    },
-    {
-      name: 'Tolulope Ajayi Grace',
-      title: 'Senior Content Strategist',
-      description: 'Transforms complex business challenges into clear, compelling narratives that resonate with audiences and drive action.',
-      image: '/team/tolulope-ajayi-grace.png'
-    }
-  ];
 
   const testimonials = [
     {
@@ -200,56 +168,11 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Team Grid */}
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-secondary mb-4">Meet the Clarity Crew</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Five strategists, one mission: helping you communicate with purpose and precision.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                onClick={() => window.location.href = '/contact'}
-                className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105 border border-gray-100"
-              >
-                <div className="w-32 h-32 rounded-full overflow-hidden mb-6 mx-auto ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    onError={(e) => {
-                      // Fallback to placeholder if image fails to load
-                      e.currentTarget.src = `https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop`;
-                    }}
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-secondary mb-2 text-center group-hover:text-primary transition-colors">
-                  {member.name}
-                </h3>
-                <p className="text-primary font-semibold mb-4 text-center text-sm">
-                  {member.title}
-                </p>
-                <p className="text-gray-600 text-sm text-center leading-relaxed">
-                  {member.description}
-                </p>
-                <div className="mt-6 text-center">
-                  <span className="text-xs text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-primary/10 px-3 py-1 rounded-full">
-                    Click to get started →
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
+
+      {/* Professional Team Section */}
+      <ProfessionalTeamSection />
 
       {/* Philosophy Section */}
       <section id="philosophy" className="py-20 bg-background">

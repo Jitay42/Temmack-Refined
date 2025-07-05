@@ -1,12 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKSDWQBJQT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HKSDWQBJQT', {
+        enhanced_measurement: true,
+        custom_map: {
+          'custom_parameter_1': 'team_member_view'
+        }
+      });
+    </script>
+    
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Temmack™ Solutions | Simplicity That Leaves a Mark</title>
     <meta name="description" content="Global clarity-first digital consultancy offering copywriting, strategy, SEO, automation, and AI-powered systems. We help brands speak boldly, simply, and with strategy.">
     <meta name="keywords" content="digital marketing, copywriting, brand messaging, content strategy, SEO, AI prompts, marketing automation, clarity consulting">
+    
+    <!-- CSP Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://formspree.io; frame-src 'none';">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
