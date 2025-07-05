@@ -93,13 +93,6 @@ const Home = () => {
     }
   ];
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen">
       {/* Realistic Model Banner */}
@@ -108,25 +101,10 @@ const Home = () => {
       {/* Hero Content Section */}
       <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-accent/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
-              <img 
-                src="/logo/Tmk logo.png" 
-                alt="Temmack Logo" 
-                className="w-12 h-12 object-contain brightness-0 invert"
-              />
-            </div>
-          </motion.div>
-          
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl font-black mb-8 leading-tight text-secondary"
           >
             Clarity Changes <span className="text-primary">Everything</span>
@@ -135,7 +113,7 @@ const Home = () => {
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl mb-10 leading-relaxed text-gray-700 max-w-3xl mx-auto"
           >
             You're not invisible — you're just unclear. We help brands speak boldly, 
@@ -145,16 +123,15 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <motion.button 
-              onClick={scrollToContact}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-primary text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-primary/90 transition-all duration-500 ease-in-out shadow-2xl active:bg-accent"
+            <Link 
+              to="/contact"
+              className="inline-flex items-center bg-primary text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-primary/90 transition-all duration-500 ease-in-out shadow-2xl active:bg-accent transform hover:scale-105 group"
             >
               Let's Create Clarity Together
-            </motion.button>
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -307,14 +284,13 @@ const Home = () => {
                 ))}
               </div>
 
-              <motion.button
-                onClick={scrollToContact}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors text-lg bg-transparent border-2 border-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white active:bg-accent active:border-accent duration-500"
+              <Link
+                to="/contact"
+                className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors text-lg bg-transparent border-2 border-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white active:bg-accent active:border-accent duration-500 group"
               >
                 Experience the Difference
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </motion.button>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </motion.div>
 
             <motion.div
@@ -500,14 +476,13 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-16">
-            <motion.button
-              onClick={scrollToContact}
-              whileTap={{ scale: 0.95 }}
+            <Link
+              to="/contact"
               className="inline-flex items-center bg-transparent text-white border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all duration-500 ease-in-out transform hover:scale-105 shadow-lg group"
             >
               Start Your Clarity Journey
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </Link>
           </div>
         </div>
       </section>
