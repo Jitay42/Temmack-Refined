@@ -105,6 +105,60 @@ const Home = () => {
       {/* Realistic Model Banner */}
       <RealisticModelBanner />
 
+      {/* Hero Content Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-accent/5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-8"
+          >
+            <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
+              <img 
+                src="/logo/Tmk logo.png" 
+                alt="Temmack Logo" 
+                className="w-12 h-12 object-contain brightness-0 invert"
+              />
+            </div>
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl font-black mb-8 leading-tight text-secondary"
+          >
+            Clarity Changes <span className="text-primary">Everything</span>
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl md:text-2xl mb-10 leading-relaxed text-gray-700 max-w-3xl mx-auto"
+          >
+            You're not invisible — you're just unclear. We help brands speak boldly, 
+            sell better, and grow with direction.
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <motion.button 
+              onClick={scrollToContact}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-primary text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-primary/90 transition-all duration-500 ease-in-out shadow-2xl active:bg-accent"
+            >
+              Let's Create Clarity Together
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Service Cards */}
       <ServiceCards />
 
@@ -282,16 +336,10 @@ const Home = () => {
                   <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
                       <img 
-                        src="/logo/temmack-logo.png" 
+                        src="/logo/Tmk logo.png" 
                         alt="Temmack Logo" 
                         className="w-8 h-8 object-contain brightness-0 invert"
-                        onError={(e) => {
-                          // Fallback to TMK text if logo fails
-                          e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling.style.display = 'block';
-                        }}
                       />
-                      <span className="text-white font-bold hidden">TMK</span>
                     </div>
                     <div>
                       <p className="font-semibold text-secondary">The Temmack Philosophy</p>

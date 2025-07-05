@@ -18,18 +18,10 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src="/logo/temmack-logo.png" 
+                src="/logo/Tmk logo.png" 
                 alt="Temmack Solutions Logo" 
                 className="h-10 w-auto brightness-0 invert"
-                onError={(e) => {
-                  // Fallback to TMK text if logo fails
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'flex';
-                }}
               />
-              <div className="hidden w-8 h-8 bg-primary rounded-lg items-center justify-center">
-                <span className="text-white font-black text-sm">TMK</span>
-              </div>
               <div>
                 <span className="text-xl font-bold">Temmack™ Solutions</span>
                 <p className="text-sm text-gray-300">Simplicity That Leaves a Mark</p>

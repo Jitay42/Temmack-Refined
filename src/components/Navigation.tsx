@@ -54,18 +54,10 @@ const Navigation = () => {
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <img 
-                src="/logo/temmack-logo.png" 
+                src="/logo/Tmk logo.png" 
                 alt="Temmack Solutions Logo" 
                 className="h-12 w-auto group-hover:scale-110 transition-transform duration-300"
-                onError={(e) => {
-                  // Fallback to TMK text if logo fails
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'flex';
-                }}
               />
-              <div className="hidden w-10 h-10 bg-primary rounded-lg items-center justify-center group-hover:scale-110 transition-transform">
-                <span className="text-white font-black text-lg">TMK</span>
-              </div>
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black text-secondary">Temmack™</span>
