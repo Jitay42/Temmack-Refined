@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 
 declare global {
   interface Window {
@@ -131,7 +129,7 @@ const ProfessionalTeamSection: React.FC = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
@@ -174,31 +172,6 @@ const ProfessionalTeamSection: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* CTA Links */}
-        <div className="text-center mt-12 space-y-4">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/services"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors space-x-2"
-            >
-              <span>What We Do</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            
-            <Link
-              to="/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-colors space-x-2"
-            >
-              <span>Contact Form</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

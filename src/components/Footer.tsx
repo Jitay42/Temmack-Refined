@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Instagram, Phone, MapPin } from 'lucide-react';
+import { Instagram, Phone, MapPin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -22,98 +22,50 @@ const Footer = () => {
 
   return (
     <footer className="bg-secondary text-white">
-      {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Left Column - Company Information */}
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          
+          {/* Company Information - Left */}
+          <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
               <img 
                 src="/logo/Tmk logo.png" 
                 alt="Temmack Solutions Logo" 
-                className="h-10 w-auto brightness-0 invert"
+                className="h-12 w-auto brightness-0 invert"
               />
               <div>
-                <span className="text-xl font-bold">Temmack™ Solutions</span>
-                <p className="text-sm text-gray-300">Simplicity That Leaves a Mark</p>
+                <span className="text-2xl font-bold">Temmack™</span>
+                <p className="text-sm text-gray-300 -mt-1">Solutions</p>
               </div>
             </div>
-
-            <div className="mb-6">
-              <h4 className="font-semibold mb-2 text-white">Email</h4>
-              <a 
-                href="mailto:info@temmack.com.ng" 
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                info@temmack.com.ng
-              </a>
-            </div>
-          </div>
-
-          {/* Center Column - Navigation Links */}
-          <div>
-            <h4 className="font-semibold mb-4 text-white">Navigation</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link to="/citable-pen" className="hover:text-white transition-colors">Citable-Pen</Link></li>
-              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-
-            <h4 className="font-semibold mb-4 text-white mt-8">Legal</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
-            </ul>
-          </div>
-
-          {/* Right Column - Social Media & Contact */}
-          <div>
-            <h4 className="font-semibold mb-4 text-white">Connect With Us</h4>
             
-            <div className="flex space-x-4 mb-8">
-              <a 
-                href="https://wa.me/2349133167253" 
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Message Temmack on WhatsApp"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white hover:bg-green-700 transition-colors"
-              >
-                <WhatsAppIcon className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://instagram.com/temmack_solutions" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:from-purple-600 hover:to-pink-600 transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://tiktok.com/@theaicopyguy" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white hover:bg-gray-800 transition-colors"
-              >
-                <TikTokIcon className="w-5 h-5" />
-              </a>
-            </div>
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              Simplicity That Leaves a Mark
+            </p>
 
-            <div className="space-y-4">
-              <div>
-                <h5 className="font-semibold text-white mb-2">Phone</h5>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-primary" />
+                <a 
+                  href="mailto:info@temmack.com.ng" 
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  info@temmack.com.ng
+                </a>
+              </div>
+              
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-primary" />
                 <a 
                   href="tel:+2349133167253" 
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  +2349133167253
+                  +234 913 316 7253
                 </a>
               </div>
               
-              <div>
-                <h5 className="font-semibold text-white mb-2">Address</h5>
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-primary mt-1" />
                 <p className="text-gray-300">
                   3 Association Avenue, Eruwen,<br />
                   Ikorodu, Lagos, Nigeria
@@ -121,10 +73,83 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+          {/* Quick Links */}
+          <div className="lg:col-span-1">
+            <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+            <ul className="space-y-3">
+              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors hover:translate-x-1 transform duration-200 inline-block">Home</Link></li>
+              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors hover:translate-x-1 transform duration-200 inline-block">Services</Link></li>
+              <li><Link to="/faq" className="text-gray-300 hover:text-white transition-colors hover:translate-x-1 transform duration-200 inline-block">FAQ</Link></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors hover:translate-x-1 transform duration-200 inline-block">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="lg:col-span-1">
+            <h4 className="text-lg font-semibold mb-6 text-white">Our Services</h4>
+            <ul className="space-y-3 text-gray-300">
+              <li>Digital & UX Copywriting</li>
+              <li>Email Marketing</li>
+              <li>Content Strategy & SEO</li>
+              <li>Brand Strategy</li>
+              <li>AI Prompt Systems</li>
+              <li>Social Media Strategy</li>
+            </ul>
+          </div>
+
+          {/* Connect & Legal */}
+          <div className="lg:col-span-1">
+            <h4 className="text-lg font-semibold mb-6 text-white">Connect With Us</h4>
+            
+            <div className="flex space-x-4 mb-8">
+              <a 
+                href="https://wa.me/2349133167253" 
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Message Temmack on WhatsApp"
+                className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white hover:bg-green-700 transition-all duration-300 hover:scale-110"
+              >
+                <WhatsAppIcon className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://instagram.com/temmack_solutions" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-110"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://tiktok.com/@theaicopyguy" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:bg-gray-800 transition-all duration-300 hover:scale-110"
+              >
+                <TikTokIcon className="w-6 h-6" />
+              </a>
+            </div>
+
+            <div>
+              <h5 className="text-sm font-semibold mb-3 text-white">Legal</h5>
+              <ul className="space-y-2 text-gray-300 text-sm">
+                <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 text-center text-gray-400 mt-12">
-          <p>{t('footer.copyright')}</p>
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-700 pt-8 mt-12">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              {t('footer.copyright')}
+            </p>
+            <p className="text-gray-400 text-sm mt-4 md:mt-0">
+              Designed with clarity in mind
+            </p>
+          </div>
         </div>
       </div>
     </footer>
