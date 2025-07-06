@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 declare global {
   interface Window {
@@ -18,23 +18,7 @@ interface TeamMember {
   imageSrcSet?: string;
 }
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-  newsletter: boolean;
-}
-
 const ProfessionalTeamSection: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: '',
-    newsletter: false
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [submitMessage, setSubmitMessage] = useState('');
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const teamMembers: TeamMember[] = [
@@ -115,71 +99,6 @@ const ProfessionalTeamSection: React.FC = () => {
     }
   };
 
-  // Form handling
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (isSubmitting) return; // Prevent double submissions
-    
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const response = await fetch('https://formspree.io/f/mvgrnozr', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          newsletter: formData.newsletter
-        }),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        if (formData.newsletter) {
-          setSubmitMessage("You've successfully subscribed to our newsletter!");
-        } else {
-          setSubmitMessage("Thank you for your submission! We'll be in touch soon.");
-        }
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          message: '',
-          newsletter: false
-        });
-
-        // Track successful submission
-        if (window.gtag) {
-          window.gtag('event', 'form_submit', {
-            event_category: 'engagement',
-            event_label: 'team_contact_form'
-          });
-        }
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-      setSubmitMessage('Sorry, there was an error submitting your message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section 
       className="py-20 lg:py-24" 
@@ -256,128 +175,6 @@ const ProfessionalTeamSection: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Contact Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-3xl p-8 lg:p-12 max-w-4xl mx-auto"
-        >
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Ready to Work with Our Team?
-            </h3>
-            <p className="text-lg text-gray-600">
-              Let's discuss how we can help transform your communication strategy.
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-6" aria-busy={isSubmitting}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:opacity-50"
-                  aria-describedby="name-error"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:opacity-50"
-                  aria-describedby="email-error"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-                Message *
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={6}
-                value={formData.message}
-                onChange={handleInputChange}
-                disabled={isSubmitting}
-                placeholder="Tell us about your project and how we can help..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical disabled:opacity-50"
-                aria-describedby="message-error"
-              />
-            </div>
-
-            <div className="flex items-center space-x-3">
-              <input
-                type="checkbox"
-                id="newsletter"
-                name="newsletter"
-                checked={formData.newsletter}
-                onChange={handleInputChange}
-                disabled={isSubmitting}
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 disabled:opacity-50"
-              />
-              <label htmlFor="newsletter" className="text-sm text-gray-600">
-                Subscribe to our newsletter for weekly insights
-              </label>
-            </div>
-
-            {/* Submit Status Messages */}
-            {submitStatus !== 'idle' && (
-              <div
-                className={`p-4 rounded-xl ${
-                  submitStatus === 'success' 
-                    ? 'bg-green-50 text-green-800 border border-green-200' 
-                    : 'bg-red-50 text-red-800 border border-red-200'
-                }`}
-                role="alert"
-                aria-live="polite"
-              >
-                {submitMessage}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] shadow-lg flex items-center justify-center space-x-3"
-            >
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Submitting...</span>
-                </>
-              ) : (
-                <>
-                  <span>Send Message</span>
-                  <ArrowRight className="w-5 h-5" />
-                </>
-              )}
-            </button>
-          </form>
-        </motion.div>
 
         {/* CTA Links */}
         <div className="text-center mt-12 space-y-4">
