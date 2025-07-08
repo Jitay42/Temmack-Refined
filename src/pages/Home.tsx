@@ -114,28 +114,53 @@ const Home = () => {
       <h2 className="text-4xl font-bold text-secondary mb-6">
         The Story Behind Temmack
       </h2>
-      <div className="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed">
+      <div className="max-w-4xl mx-auto space-y-8 text-lg text-gray-700 leading-relaxed">
+
         <p>
-          <strong>It started with a frustration.</strong> Too many brilliant businesses were drowning in their own complexity. 
-          Great products hidden behind confusing websites. Powerful services buried under buzzword-heavy copy. 
-          Smart entrepreneurs struggling to explain what they actually do.
+          <strong>It started with a simple question:</strong> Why is clear communication so rare? We saw too many brands with great ideas lost in confusing words and overcomplicated strategies. 
+          <img 
+            src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="Brainstorming session" 
+            className="rounded-lg my-4 mx-auto shadow-lg"
+          />
+          We knew there had to be a better way.
         </p>
+
         <p>
-          <strong>We knew there had to be a better way.</strong> In 2024, we founded Temmack with a simple mission: 
-          help businesses say what they mean, mean what they say, and connect authentically with the people they serve.
+          <strong>In 2024, we founded Temmack with a clear mission:</strong> Help businesses say what they mean, mean what they say, and connect authentically with the people they serve.
+          <img 
+            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="Teamwork at desk" 
+            className="rounded-lg my-4 mx-auto shadow-lg"
+          />
         </p>
+
         <p>
-          <strong>Our vision is bold yet simple:</strong> To make clarity a competitive advantage. 
-          We believe that in a world full of noise, the brands that speak clearly will be the ones that win.
+          <strong>Our vision is bold yet simple:</strong> To make clarity a competitive advantage. We believe that in a noisy world, the brands that speak clearly will be the ones that win.
         </p>
+
         <p>
-          <strong>Our passion drives everything we do:</strong> We're obsessed with making communication effortless and effective. 
-          Because when your message is clear, everything else becomes possible.
+          <strong>What drives us:</strong> Empathy, honesty, and strategy. No empty promises, no jargon-heavy nonsense—just real, human communication that works.
+          <img 
+            src="https://images.pexels.com/photos/3184451/pexels-photo-3184451.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="Collaborative planning" 
+            className="rounded-lg my-4 mx-auto shadow-lg"
+          />
         </p>
+
+        <p>
+          <strong>Temmack is for those who want better:</strong> Startups laying strong foundations. SaaS companies simplifying onboarding. NGOs telling their stories clearly. Small businesses ready to sound like big brands. If you want your message to land—and stick—we’re here for you.
+        </p>
+
+        <p>
+          <strong>Our values guide everything we do:</strong> Clarity first. Empathy always. Strategic thinking. Collaboration over ego. Honest work with integrity. We believe these aren’t just nice words—they’re what make the difference.
+        </p>
+        
       </div>
     </div>
   </div>
 </section>
+
 
       {/* Professional Team Section */}
       <ProfessionalTeamSection />
