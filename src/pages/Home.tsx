@@ -108,147 +108,34 @@ const Home = () => {
       <ServiceCards />
 
       {/* About Section */}
-      <section className="py-12 bg-white">
-  <div className="max-w-4xl mx-auto px-4">
-    <h2 className="text-4xl font-bold text-center mb-8">The Story Behind Temmack</h2>
-
-    <div className="space-y-8 text-lg leading-relaxed text-gray-800">
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?thinking,frustration" alt="Frustration" className="w-full rounded-lg mb-4" />
-        <p>It started with a feeling—a constant itch that something about how brands communicate was off.</p>
-        <blockquote className="border-l-4 border-red-500 pl-4 italic">
-          “Why is this so complicated? Why does it feel like they’re talking, but not really saying anything?”
-        </blockquote>
-        <p>That frustration didn’t go away. In fact, it got louder.</p>
-        <p>In a world flooded with content and tools, most businesses were still struggling to say what they do, why it matters, and how they help. The problem wasn’t a lack of talent or ambition. It was a lack of clarity. And that’s where the idea for Temmack was born.</p>
+      <section id="about" className="py-20 bg-background">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-secondary mb-6">
+        The Story Behind Temmack
+      </h2>
+      <div className="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed">
+        <p>
+          <strong>It started with a frustration.</strong> Too many brilliant businesses were drowning in their own complexity. 
+          Great products hidden behind confusing websites. Powerful services buried under buzzword-heavy copy. 
+          Smart entrepreneurs struggling to explain what they actually do.
+        </p>
+        <p>
+          <strong>We knew there had to be a better way.</strong> In 2024, we founded Temmack with a simple mission: 
+          help businesses say what they mean, mean what they say, and connect authentically with the people they serve.
+        </p>
+        <p>
+          <strong>Our vision is bold yet simple:</strong> To make clarity a competitive advantage. 
+          We believe that in a world full of noise, the brands that speak clearly will be the ones that win.
+        </p>
+        <p>
+          <strong>Our passion drives everything we do:</strong> We're obsessed with making communication effortless and effective. 
+          Because when your message is clear, everything else becomes possible.
+        </p>
       </div>
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?teamwork,planning" alt="Team planning" className="w-full rounded-lg mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">In 2024: The Beginning</h3>
-        <p>In 2024, we founded Temmack with a simple mission:</p>
-        <blockquote className="border-l-4 border-red-500 pl-4 italic">
-          Help businesses say what they mean, mean what they say, and connect authentically with the people they serve.
-        </blockquote>
-        <p>No more empty slogans. No more complicated jargon. Just clear, honest, effective communication that actually works.</p>
-      </div>
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?clarity,focus" alt="Clarity and focus" className="w-full rounded-lg mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">From Confusion to Clarity</h3>
-        <p>Temmack didn’t start as a big agency or a trend-chasing marketing outfit. It started with a question:</p>
-        <blockquote className="border-l-4 border-red-500 pl-4 italic">
-          “What if we built a team focused on helping brands say less, but mean more?”
-        </blockquote>
-        <p>The kind of team that wouldn’t just write copy, but craft messaging that sticks. The kind of partner that doesn’t just “do digital,” but helps clients think sharper and grow smarter. The kind of service that prioritizes clarity, simplicity, and strategy—because that’s what drives trust and results.</p>
-      </div>
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?vision,light" alt="Vision" className="w-full rounded-lg mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">Our Vision</h3>
-        <p>Our vision is bold yet simple:</p>
-        <blockquote className="border-l-4 border-red-500 pl-4 italic">
-          To make clarity a competitive advantage.
-        </blockquote>
-        <p>We believe that in a world full of noise, the brands that speak clearly will be the ones that win. Clarity isn’t a nice-to-have. It’s what separates the brands people remember from the ones they ignore.</p>
-      </div>
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?idea,lightbulb" alt="Idea" className="w-full rounded-lg mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">Why the Name Temmack?</h3>
-        <p>Temmack stands for a mindset. It’s the belief that simplicity leaves a mark—not filler, not noise, not clever-sounding jargon. It’s also a nod to the kind of people we love working with: those who are serious about getting better at how they communicate, connect, and convert.</p>
-      </div>
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?target,audience" alt="Target Audience" className="w-full rounded-lg mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">Who We’re For</h3>
-        <p>We’re not for everyone. And we’re okay with that.</p>
-        <ul className="list-disc list-inside">
-          <li>SaaS brands that need sharper messaging and onboarding flows</li>
-          <li>Startups building their foundation from scratch</li>
-          <li>Fintech companies trying to simplify the complex</li>
-          <li>NGOs and social impact orgs trying to tell their story clearly</li>
-          <li>Educators and EdTech platforms trying to connect, not just inform</li>
-          <li>Small businesses ready to show up like big brands</li>
-        </ul>
-        <p>If you’ve ever felt that your message isn’t landing—or worse, that it’s getting lost in the noise—then we built Temmack for you.</p>
-      </div>
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?values,ethics" alt="Values" className="w-full rounded-lg mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">What We Believe</h3>
-        <ul className="list-disc list-inside">
-          <li>📌 People don’t buy what they don’t understand.</li>
-          <li>📌 Good strategy makes everything else easier.</li>
-          <li>📌 The best copy doesn’t sound smart—it makes you sound understood.</li>
-          <li>📌 And most importantly: communication should be clear, honest, and deeply human.</li>
-        </ul>
-      </div>
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?growth,team" alt="Team and Growth" className="w-full rounded-lg mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">Where We’re Headed</h3>
-        <p>Temmack isn’t just a service. It’s a shift. We're building a team of writers, strategists, marketers, and technologists who care deeply about helping brands speak with meaning and grow with clarity—across borders, industries, and platforms.</p>
-        <p>Whether we’re writing UX copy for a fintech startup in Kenya, building an email funnel for a SaaS in Canada, or creating AI prompts for a creative agency in Berlin—our goal stays the same:</p>
-        <blockquote className="border-l-4 border-red-500 pl-4 italic">
-          Make it clear. Make it smart. Make it matter.
-        </blockquote>
-      </div>
-
-      <div>
-        <img src="https://source.unsplash.com/800x400/?collaboration,teamwork" alt="Work Values" className="w-full rounded-lg mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">Temmack Work Values</h3>
-        <ul className="list-disc list-inside">
-          <li>✅ Clarity First – We strip away the noise and focus on what truly matters.</li>
-          <li>✅ Empathy Always – We listen, understand, and communicate like humans.</li>
-          <li>✅ Strategic Thinking – Every word, design, or plan has a purpose behind it.</li>
-          <li>✅ Collaboration Over Ego – We work as partners with our clients, not as know-it-alls.</li>
-          <li>✅ Honesty & Integrity – No tricks, no filler, no empty promises. Just real, valuable work.</li>
-          <li>✅ Continuous Learning – We’re always sharpening our skills and expanding our thinking to better serve.</li>
-        </ul>
-        <p>We believe these values aren’t just nice words—they’re the difference between good work and work that makes a mark.</p>
-      </div>
-      
     </div>
   </div>
 </section>
-
-          {/* Values Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                icon: Target,
-                title: 'Strategy First',
-                description: 'Every word serves a purpose. We start with strategy, not tactics, ensuring your message aligns with your business goals.'
-              },
-              {
-                icon: Users,
-                title: 'Human Connection',
-                description: 'We write for humans, not algorithms. Our copy creates genuine connections that turn strangers into customers.'
-              },
-              {
-                icon: Lightbulb,
-                title: 'Clarity Over Cleverness',
-                description: 'We choose understanding over impression. Clear communication always wins over clever wordplay.'
-              }
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow text-center"
-              >
-                <value.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-secondary mb-3">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Professional Team Section */}
       <ProfessionalTeamSection />
