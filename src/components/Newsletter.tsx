@@ -1,16 +1,44 @@
-import React, { useState } from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Mail } from 'lucide-react';
+import { Mail, CheckCircle } from 'lucide-react';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const FORM_ENDPOINT = 'https://formspree.io/f/mvgrnozr'; // Your actual Formspree endpoint
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Newsletter signup:', email);
-    setEmail('');
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setEmail('');
+      } else {
+        console.error('Form submission error:', res.statusText);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
+
+  // Hide confirmation after 3 seconds
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => setSubmitted(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted]);
 
   return (
     <div className="bg-primary py-16">
@@ -22,7 +50,7 @@ const Newsletter = () => {
         <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
           Get weekly insights on clarity, strategy, and communication that converts.
         </p>
-        
+
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
           <input
             type="email"
@@ -39,7 +67,15 @@ const Newsletter = () => {
             {t('newsletter.subscribe')}
           </button>
         </form>
-        
+
+        {/* ✅ Confirmation Message */}
+        {submitted && (
+          <div className="mt-4 flex items-center justify-center gap-2 text-green-500 bg-green-50 border border-green-300 rounded-full px-4 py-2 text-sm font-medium">
+            <CheckCircle className="w-4 h-4" />
+            <span>Welcome! We’ll send you only the good stuff—clear strategies, real results.</span>
+          </div>
+        )}
+
         <p className="text-sm text-white/70 mt-4">
           {t('newsletter.microcopy')}
         </p>
