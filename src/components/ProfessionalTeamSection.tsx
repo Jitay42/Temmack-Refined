@@ -23,43 +23,49 @@ const ProfessionalTeamSection: React.FC = () => {
     {
       name: 'Johanson Fred',
       title: 'SEO & Social Media Strategist',
-      description: 'Bridges the gap between visibility and value through strategic content optimization and search-driven storytelling.',
+      description:
+        'Bridges the gap between visibility and value through strategic content optimization and search-driven storytelling.',
       image: '/team/Fred Johanson.jpg',
       imageWebP: '/team/Fred Johanson.webp',
-      imageSrcSet: '/team/Fred Johanson.jpg 300w, /team/Fred Johanson@2x.jpg 600w'
+      imageSrcSet: '/team/Fred Johanson.jpg 300w, /team/Fred Johanson@2x.jpg 600w',
     },
     {
       name: 'Jennifer Omawumi',
       title: 'Digital Marketer',
-      description: 'Architects growth strategies through data-driven campaigns and conversion-focused messaging that delivers measurable results.',
+      description:
+        'Architects growth strategies through data-driven campaigns and conversion-focused messaging that delivers measurable results.',
       image: '/team/Jenifer Omashola.png',
       imageWebP: '/team/Jenifer Omashola.webp',
-      imageSrcSet: '/team/Jenifer Omashola.png 300w, /team/Jenifer Omashola@2x.png 600w'
+      imageSrcSet: '/team/Jenifer Omashola.png 300w, /team/Jenifer Omashola@2x.png 600w',
     },
     {
-      name: 'Lex O\'Brien',
+      name: "Lex O'Brien",
       title: 'Chief HOD, AI Prompt Engineer',
-      description: 'Engineers AI-powered marketing systems that scale human creativity while maintaining authentic brand voice.',
-      image: '/team/Lex O\'Brien.png',
-      imageWebP: '/team/Lex O\'Brien.webp',
-      imageSrcSet: '/team/Lex O\'Brien.png 300w, /team/Lex O\'Brien@2x.png 600w'
+      description:
+        'Engineers AI-powered marketing systems that scale human creativity while maintaining authentic brand voice.',
+      image: "/team/Lex O'Brien.png",
+      imageWebP: "/team/Lex O'Brien.webp",
+      imageSrcSet: "/team/Lex O'Brien.png 300w, /team/Lex O'Brien@2x.png 600w",
     },
     {
       name: 'David Akpovogaga',
       title: 'UX/UI Designer & DevOps',
-      description: 'Crafts digital experiences that seamlessly blend aesthetic excellence with psychological conversion principles.',
+      description:
+        'Crafts digital experiences that seamlessly blend aesthetic excellence with psychological conversion principles.',
       image: '/team/Akpovogaga David.png',
       imageWebP: '/team/Akpovogaga David.webp',
-      imageSrcSet: '/team/Akpovogaga David.png 300w, /team/Akpovogaga David@2x.png 600w'
+      imageSrcSet: '/team/Akpovogaga David.png 300w, /team/Akpovogaga David@2x.png 600w',
     },
     {
       name: 'Tolulope Ajayi Grace',
       title: 'Senior Content Strategist',
-      description: 'Transforms complex business challenges into clear, compelling narratives that resonate with audiences and drive action.',
+      description:
+        'Transforms complex business challenges into clear, compelling narratives that resonate with audiences and drive action.',
       image: '/team/Tolulope Ajayi Grace.png',
       imageWebP: '/team/Tolulope Ajayi Grace.webp',
-      imageSrcSet: '/team/Tolulope Ajayi Grace.png 300w, /team/Tolulope Ajayi Grace@2x.png 600w'
-    }
+      imageSrcSet:
+        '/team/Tolulope Ajayi Grace.png 300w, /team/Tolulope Ajayi Grace@2x.png 600w',
+    },
   ];
 
   // Analytics tracking for team member visibility
@@ -73,7 +79,7 @@ const ProfessionalTeamSection: React.FC = () => {
               window.gtag('event', 'team_member_view', {
                 event_category: 'engagement',
                 event_label: memberName,
-                custom_parameter_1: memberName
+                custom_parameter_1: memberName,
               });
             }
           }
@@ -98,8 +104,8 @@ const ProfessionalTeamSection: React.FC = () => {
   };
 
   return (
-    <section 
-      className="py-20 lg:py-24" 
+    <section
+      className="py-20 lg:py-24"
       style={{ backgroundColor: '#000000' }}
       role="region"
       aria-labelledby="team-heading"
@@ -142,7 +148,7 @@ const ProfessionalTeamSection: React.FC = () => {
               aria-label={`${member.name} - ${member.title}`}
             >
               {/* Image Container */}
-              <div className="relative w-72 h-72 mx-auto mb-6 overflow-hidden rounded-2xl">
+              <div className="relative w-full aspect-square max-w-[18rem] mx-auto mb-6 overflow-hidden rounded-2xl">
                 <picture>
                   {member.imageWebP && (
                     <source srcSet={member.imageWebP} type="image/webp" />
@@ -153,7 +159,6 @@ const ProfessionalTeamSection: React.FC = () => {
                     alt={`${member.name} - ${member.title}`}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    style={{ minWidth: '300px', minHeight: '300px' }}
                   />
                 </picture>
               </div>
