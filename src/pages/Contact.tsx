@@ -29,9 +29,9 @@ const Contact = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   // 3️⃣ Countries, options (unchanged)
-  const countries = [ ... ];
-  const howHeardOptions = [ ... ];
-  const serviceOptions = { ... };
+  const countries = [];
+  const howHeardOptions = [];
+  const serviceOptions = {};
 
   // 4️⃣ Formspree submission
   const handleSubmit = async (e: React.FormEvent) => {
