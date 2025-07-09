@@ -151,8 +151,65 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
 
             {/* Sidebar */}
-            <motion.div ...>
-              ...
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
+            >
+              <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                <h3 className="text-xl font-bold text-secondary mb-6">Get In Touch</h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-secondary mb-1">Phone</h4>
+                      <p className="text-gray-600">+1 (555) 123-4567</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-secondary mb-1">Location</h4>
+                      <p className="text-gray-600">New York, NY</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-secondary mb-1">Response Time</h4>
+                      <p className="text-gray-600">Within 24 hours</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 border border-primary/10">
+                <h3 className="text-lg font-bold text-secondary mb-4">Why Choose Us?</h3>
+                <ul className="space-y-3 text-sm text-gray-600">
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Expert communication strategies</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-accent rounded-full"></div>
+                    <span>Proven results across industries</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>24-hour response guarantee</span>
+                  </li>
+                </ul>
+              </div>
             </motion.div>
 
             {/* Main Form */}
@@ -171,7 +228,7 @@ const Contact = () => {
                     </svg>
                     <h2 className="text-4xl font-bold text-green-700 mb-4">Your message is with us</h2>
                     <p className="text-green-600 max-w-xl mx-auto">
-                      Thanks for reaching out. We’ll review your details and get back to you within 24 hours. Expect clarity soon!
+                      Thanks for reaching out. We'll review your details and get back to you within 24 hours. Expect clarity soon!
                     </p>
                   </div>
                 ) : (
