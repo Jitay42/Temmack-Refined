@@ -68,7 +68,6 @@ const ProfessionalTeamSection: React.FC = () => {
     },
   ];
 
-  // Analytics tracking for team member visibility
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -95,7 +94,6 @@ const ProfessionalTeamSection: React.FC = () => {
     };
   }, []);
 
-  // Attach observer to team member cards
   const attachObserver = (element: HTMLElement | null, memberName: string) => {
     if (element && observerRef.current) {
       element.setAttribute('data-member-name', memberName);
@@ -105,8 +103,7 @@ const ProfessionalTeamSection: React.FC = () => {
 
   return (
     <section
-      className="py-20 lg:py-24"
-      style={{ backgroundColor: '#000000' }}
+      className="py-20 lg:py-24 bg-black"
       role="region"
       aria-labelledby="team-heading"
     >
@@ -135,7 +132,7 @@ const ProfessionalTeamSection: React.FC = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
@@ -144,11 +141,11 @@ const ProfessionalTeamSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group transform hover:scale-105"
+              className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 group transform hover:scale-105"
               aria-label={`${member.name} - ${member.title}`}
             >
               {/* Image Container */}
-              <div className="relative w-full aspect-square max-w-[18rem] mx-auto mb-6 overflow-hidden rounded-2xl">
+              <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] max-w-[18rem] mx-auto mb-6 overflow-hidden rounded-2xl">
                 <picture>
                   {member.imageWebP && (
                     <source srcSet={member.imageWebP} type="image/webp" />
@@ -158,7 +155,7 @@ const ProfessionalTeamSection: React.FC = () => {
                     srcSet={member.imageSrcSet}
                     alt={`${member.name} - ${member.title}`}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                   />
                 </picture>
               </div>
