@@ -114,33 +114,36 @@ const Home = () => {
       <h2 className="text-4xl font-bold text-secondary mb-6">
         The Story Behind Temmack
       </h2>
-      <div className="max-w-4xl mx-auto space-y-8 text-lg text-gray-700 leading-relaxed">
+      <div className="max-w-4xl mx-auto space-y-10 text-lg text-gray-700 leading-relaxed">
 
         <p>
-          <strong>It started with a simple question:</strong> Why is clear communication so rare? We saw too many brands with great ideas lost in confusing words and overcomplicated strategies. 
+          <strong>It started with a question—and a frustration.</strong> Why is it so hard for brands to say what they actually mean? We kept seeing brilliant companies with smart teams lose customers because their message was buried under jargon and clutter. The frustration didn't go away. In fact, it got louder. We saw entrepreneurs struggle to explain their value. We saw good ideas fail to resonate. And every time we clicked another over-designed website or read another buzzword-filled ad, we thought: <em>“This can’t be the best we can do.”</em>
           <img 
             src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800" 
             alt="Brainstorming session" 
             className="rounded-lg my-4 mx-auto shadow-lg"
           />
-          We knew there had to be a better way.
         </p>
 
         <p>
-          <strong>In 2024, we founded Temmack with a clear mission:</strong> Help businesses say what they mean, mean what they say, and connect authentically with the people they serve.
-          <img 
+          <strong>In 2024, we decided to do something about it.</strong> We founded Temmack with one clear mission: Help businesses say what they mean, mean what they say, and connect authentically with the people they serve. No more clever-sounding nonsense. No more smoke and mirrors. Just clear, honest, effective communication that actually works. Because when your audience understands you, they trust you. And when they trust you, they buy from you. It's not magic—it's clarity. And clarity is what makes everything else possible.
+          <motion.img 
             src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
             alt="Teamwork at desk" 
             className="rounded-lg my-4 mx-auto shadow-lg"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           />
         </p>
 
         <p>
-          <strong>Our vision is bold yet simple:</strong> To make clarity a competitive advantage. We believe that in a noisy world, the brands that speak clearly will be the ones that win.
+          <strong>Our vision is bold yet simple:</strong> To make clarity a competitive advantage. We believe that in a world overflowing with content and noise, the brands that speak clearly will be the ones that win. Clarity isn't a nice-to-have—it's the difference between being noticed and being ignored. It's the difference between a brand people forget and one they remember. At Temmack, we don't just help you sound good—we help you make sense. Because when your message is clear, everything else—sales, loyalty, growth—becomes easier.
         </p>
 
         <p>
-          <strong>What drives us:</strong> Empathy, honesty, and strategy. No empty promises, no jargon-heavy nonsense—just real, human communication that works.
+          <strong>Temmack was built with a different mindset.</strong> We didn’t want to be just another agency chasing trends. We wanted to be the partner that helps brands strip away the noise, find their voice, and use it to build real connections. Our approach is rooted in empathy, honesty, and strategic thinking. We don’t do marketing for marketing’s sake. We help you communicate like a human, so you can sell like one too.
           <img 
             src="https://images.pexels.com/photos/3184451/pexels-photo-3184451.jpeg?auto=compress&cs=tinysrgb&w=800" 
             alt="Collaborative planning" 
@@ -149,13 +152,13 @@ const Home = () => {
         </p>
 
         <p>
-          <strong>Temmack is for those who want better:</strong> Startups laying strong foundations. SaaS companies simplifying onboarding. NGOs telling their stories clearly. Small businesses ready to sound like big brands. If you want your message to land—and stick—we’re here for you.
+          <strong>Who is Temmack for?</strong> Startups that need to get their foundation right. SaaS companies with complex onboarding flows that need simplicity. Fintech brands turning confusing offers into human stories. NGOs that need the world to care about their mission. Small businesses ready to sound like big brands. If you’ve ever felt your message isn’t landing—or worse, getting lost in the noise—then we built Temmack for you.
         </p>
 
         <p>
-          <strong>Our values guide everything we do:</strong> Clarity first. Empathy always. Strategic thinking. Collaboration over ego. Honest work with integrity. We believe these aren’t just nice words—they’re what make the difference.
+          <strong>Our values guide every project, every conversation, every decision:</strong> Clarity first—always. Empathy over ego. Strategic thinking in every word. Honest work with integrity. Continuous learning and growing to serve better. We believe these aren’t just nice words—they’re the difference between good work and work that makes a mark.
         </p>
-        
+
       </div>
     </div>
   </div>
