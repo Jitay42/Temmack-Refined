@@ -164,7 +164,7 @@ const Home = () => {
 
       {/* Philosophy Section */}
       <section id="philosophy" className="py-20 bg-background">
-        {/* ...your original philosophy content here */}
+      {/* ...your original philosophy content here */}
       </section>
 
       {/* Testimonials Section */}
