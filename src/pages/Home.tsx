@@ -1,82 +1,68 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ArrowRight, Users, Target, Lightbulb, CheckCircle, Star, Quote } from 'lucide-react';
+import { ArrowRight, CheckCircle, Star, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import RealisticModelBanner from '../components/RealisticModelBanner';
 import ServiceCards from '../components/ServiceCards';
 import ProfessionalTeamSection from '../components/ProfessionalTeamSection';
 
 const Home = () => {
-  const { t } = useTranslation();
-
-  const teamMembers = [
+  const testimonials = [
     {
-      name: 'Tolulope Ajayi Grace',
-      title: 'Senior Content Strategist',
-      description: 'Master of turning complex ideas into clear, compelling stories.',
-      image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg'
+      name: 'Sarah Chen',
+      company: 'TechFlow Solutions',
+      role: 'CEO',
+      comment: 'Temmack transformed our entire communication strategy. Our conversion rates increased by 340% within 3 months.',
+      rating: 5
     },
     {
-      name: 'Jennifer Omawumi',
-      title: 'Digital Marketer',
-      description: 'Expert in driving results through targeted campaigns and strategy.',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg'
+      name: 'Marcus Johnson',
+      company: 'InnovateLab',
+      role: 'Marketing Director',
+      comment: 'Working with Temmack was a game-changer. They helped us find our voice and communicate our complex AI solutions clearly.',
+      rating: 5
     },
     {
-      name: 'Johanson Fred',
-      title: 'Social Media & SEO Expert',
-      description: 'Knows how to make brands visible and engaging in all the right places.',
-      image: 'https://images.pexels.com/photos/1138903/pexels-photo-1138903.jpeg'
-    },
-    {
-      name: 'Lex O’Brien',
-      title: 'Marketing Performance & AI Prompt Engineer',
-      description: 'Blends strategy and AI to help you scale your communication intelligently.',
-      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg'
-    },
-    {
-      name: 'David Akpovogaga',
-      title: 'Web DevOps & UX/UI Designer',
-      description: 'Builds smooth, user-centered websites that convert.',
-      image: 'https://images.pexels.com/photos/3777946/pexels-photo-3777946.jpeg'
+      name: 'Priya Patel',
+      company: 'CloudVault',
+      role: 'Founder',
+      comment: 'The team at Temmack crafts strategic communication that drives real results. Our email open rates doubled overnight.',
+      rating: 5
     }
   ];
 
   return (
     <div className="min-h-screen">
-
-      {/* Realistic Model Banner */}
+      {/* Banner */}
       <RealisticModelBanner />
 
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-accent/5">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1 
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-black mb-8 leading-tight text-secondary"
+            className="text-5xl md:text-7xl font-black mb-6 text-secondary"
           >
             Clarity Changes <span className="text-primary">Everything</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-10 leading-relaxed text-gray-700 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl mb-8 text-gray-700 max-w-2xl mx-auto"
           >
-            You're not invisible — you're just unclear. We help brands speak boldly, 
-            sell better, and grow with direction.
+            You're not invisible — you're just unclear. We help brands speak boldly, sell better, and grow with direction.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Link 
+            <Link
               to="/contact"
-              className="inline-flex items-center bg-primary text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-primary/90 transition-all duration-500 ease-in-out shadow-2xl active:bg-accent transform hover:scale-105 group"
+              className="inline-flex items-center bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-primary/90 transition-all shadow-xl group"
             >
               Let's Create Clarity Together
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -90,68 +76,132 @@ const Home = () => {
 
       {/* About Section */}
       <section id="about" className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-secondary mb-6">
-              The Story Behind Temmack
-            </h2>
-            <div className="max-w-4xl mx-auto space-y-10 text-lg text-gray-700 leading-relaxed">
-              {/* Your full Story Behind Temmack content remains unchanged */}
-              ...
-            </div>
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-secondary mb-10">The Story Behind Temmack</h2>
+          <div className="space-y-8 text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+            <p>
+              We founded Temmack to help brands say what they mean—clearly and honestly. Too often, good ideas get buried under jargon and clutter. We wanted to change that.
+            </p>
+            <img
+              src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Team brainstorming"
+              className="rounded-lg shadow-lg mx-auto"
+            />
+            <p>
+              Our mission is simple: make clarity a competitive advantage. Because when people understand you, they trust you. And when they trust you, they buy from you.
+            </p>
+            <p>
+              We work with startups, SaaS companies, fintech brands, NGOs, and small businesses that want to connect with their audience in a real, human way.
+            </p>
+            <img
+              src="https://images.pexels.com/photos/3184451/pexels-photo-3184451.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Collaboration"
+              className="rounded-lg shadow-lg mx-auto"
+            />
+            <p>
+              Our values? Clarity first. Empathy over ego. Strategic thinking. Honest work. Because effective communication isn't about sounding clever—it's about making sense.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ✅ NEW FIXED TEAM SECTION */}
-      <section id="team" className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-              Meet the Clarity Crew
-            </h3>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Five strategists, one mission: helping you communicate with purpose and precision.
-            </p>
-          </div>
+      {/* Team Section */}
+      <ProfessionalTeamSection />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {teamMembers.map((member, index) => (
+      {/* Philosophy Section */}
+      <section id="philosophy" className="py-20 bg-background">
+        <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-secondary mb-6">Why Clarity Matters</h2>
+            <p className="text-lg text-gray-700 mb-8">
+              In a noisy world, clarity isn't optional. It's your competitive edge. When your message is clear, your audience understands you without effort—and that leads to trust and action.
+            </p>
+            <div className="space-y-4 mb-8">
+              {[
+                'Strategy before words—every line has a purpose.',
+                'Psychology-backed messaging that motivates.',
+                'Conversion-focused UX that works beautifully.'
+              ].map((item, index) => (
+                <div key={index} className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                  <span className="text-lg text-secondary">{item}</span>
+                </div>
+              ))}
+            </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center text-primary border-2 border-primary px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-colors duration-500 group"
+            >
+              Experience the Difference
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="bg-primary/10 rounded-3xl p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-accent/20 rounded-full translate-y-12 -translate-x-12"></div>
+              <div className="relative z-10">
+                <blockquote className="text-2xl font-medium text-secondary mb-6 leading-relaxed">
+                  "The best marketing feels like a helpful conversation with someone who understands your challenges."
+                </blockquote>
+                <div className="flex items-center space-x-3">
+                  <img
+                    src="/logo/Tmk logo.png"
+                    alt="Temmack Logo"
+                    className="w-12 h-12 object-contain brightness-0 invert rounded-full"
+                  />
+                  <div>
+                    <p className="font-semibold text-secondary">The Temmack Philosophy</p>
+                    <p className="text-gray-600 text-sm">Clarity in action</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20" style={{ backgroundColor: '#3b6eac' }}>
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">What Our Clients Say</h2>
+          <p className="text-xl text-white/90 mb-12">
+            Real results from real businesses who chose clarity over confusion.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
               <motion.div
-                key={index}
+                key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
                 viewport={{ once: true }}
-                onClick={() => window.location.href = '/contact'}
-                className="bg-white rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-[1.02] border border-gray-100"
+                className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/20 transition-all"
               >
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-6 mx-auto ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop`;
-                    }}
-                  />
+                <div className="absolute top-4 right-4 opacity-20">
+                  <Quote className="w-12 h-12 text-white" />
                 </div>
-                
-                <h3 className="text-lg md:text-xl font-bold text-secondary mb-2 text-center group-hover:text-primary transition-colors">
-                  {member.name}
-                </h3>
-                <p className="text-primary font-semibold mb-4 text-center text-sm md:text-base">
-                  {member.title}
-                </p>
-                <p className="text-gray-600 text-sm md:text-base text-center leading-relaxed">
-                  {member.description}
-                </p>
-                
-                <div className="mt-6 text-center">
-                  <span className="text-xs md:text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-primary/10 px-3 py-1 rounded-full">
-                    Click to get started →
-                  </span>
+                <div className="flex items-center mb-4">
+                  {Array.from({ length: t.rating }).map((_, j) => (
+                    <Star key={j} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="text-white mb-6 italic">"{t.comment}"</blockquote>
+                <div className="border-t border-white/20 pt-4">
+                  <h4 className="font-bold text-white">{t.name}</h4>
+                  <p className="text-white/80 text-sm">{t.role}</p>
+                  <p className="text-white/60 text-sm">{t.company}</p>
                 </div>
               </motion.div>
             ))}
@@ -159,27 +209,19 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Professional Team Section */}
-      <ProfessionalTeamSection />
-
-      {/* Philosophy Section */}
-      <section id="philosophy" className="py-20 bg-background">
-      {/* ...your original philosophy content here */}
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20" style={{ backgroundColor: '#3b6eac' }}>
-        {/* ...your original testimonials content here */}
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-black">
-        {/* ...your original services content here */}
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-secondary text-white">
-        {/* ...your original contact content here */}
+      {/* Contact Section placeholder */}
+      <section id="contact" className="py-20 bg-secondary text-white text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-6">Ready to Start?</h2>
+          <p className="text-xl mb-8">Let's talk about how we can help you communicate with clarity.</p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center bg-white text-secondary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-500 shadow-lg group"
+          >
+            Contact Us
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </section>
     </div>
   );
