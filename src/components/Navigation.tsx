@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 
@@ -8,7 +8,6 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useTranslation();
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,19 +19,29 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    if (location.pathname === '/') {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      navigate(`/#${sectionId}`);
+    if (location.pathname !== '/') {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsOpen(false);
   };
 
   const navigateToServices = () => {
-    scrollToSection('services');
+    if (location.pathname !== '/') {
+      window.location.href = '/#services';
+      return;
+    }
+
+    const element = document.getElementById('services');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
   };
 
   return (
