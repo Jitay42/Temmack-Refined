@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import RealisticModelBanner from '../components/RealisticModelBanner';
@@ -7,21 +7,6 @@ import ServiceCards from '../components/ServiceCards';
 import ProfessionalTeamSection from '../components/ProfessionalTeamSection';
 
 const Home = () => {
-  const location = useLocation();
-
-  // Enable smooth scrolling on direct visit with #hash
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-      }
-    }
-  }, [location]);
-
   const testimonials = [
     {
       name: 'Sarah Chen',
@@ -86,13 +71,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Service Section with ID for scroll target */}
-      <section id="services" className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-secondary mb-10 text-center">What We Do</h2>
-          <ServiceCards />
-        </div>
-      </section>
+      {/* Service Cards */}
+      <ServiceCards />
 
       {/* About Section */}
       <section id="about" className="py-20 bg-background">
@@ -229,7 +209,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section placeholder */}
       <section id="contact" className="py-20 bg-secondary text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-6">Ready to Start?</h2>
