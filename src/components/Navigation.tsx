@@ -67,7 +67,7 @@ const Navigation = () => {
               {t('nav.whoWeAre')}
             </button>
             <Link
-              to="/service"
+              to="/services"
               className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
             >
               {t('nav.whatWeDo')}
@@ -109,7 +109,7 @@ const Navigation = () => {
                 {t('nav.whoWeAre')}
               </button>
               <Link
-                to="/service"
+                to="/services"
                 onClick={() => setIsOpen(false)}
                 className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
               >
