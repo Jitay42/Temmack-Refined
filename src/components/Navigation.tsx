@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 
@@ -8,6 +8,7 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,29 +20,19 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/') {
-      window.location.href = `/#${sectionId}`;
-      return;
-    }
-    
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(`/#${sectionId}`);
     }
     setIsOpen(false);
   };
 
   const navigateToServices = () => {
-    if (location.pathname !== '/') {
-      window.location.href = '/#services';
-      return;
-    }
-    
-    const element = document.getElementById('services');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsOpen(false);
+    scrollToSection('services');
   };
 
   return (
@@ -50,7 +41,6 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <img 
@@ -65,7 +55,6 @@ const Navigation = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-2">
             <Link
               to="/"
@@ -93,7 +82,6 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -104,7 +92,6 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 py-4">
             <div className="space-y-2">
