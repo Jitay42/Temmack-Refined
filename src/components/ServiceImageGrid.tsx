@@ -37,52 +37,50 @@ const services = [
 
 const ServiceImageGrid = () => {
   return (
-    <section id="services" className="py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <motion.h2
-            className="text-4xl font-bold text-secondary"
+    <div className="max-w-6xl mx-auto px-4 py-20">
+      <div className="text-center mb-12">
+        <motion.h2
+          className="text-4xl font-bold text-secondary"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          What We Do
+        </motion.h2>
+        <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
+          Practical services that simplify your message and scale your business.
+        </p>
+      </div>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            className="relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer"
           >
-            What We Do
-          </motion.h2>
-          <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
-            Practical services that simplify your message and scale your business.
-          </p>
-        </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer"
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="object-cover w-full h-64 group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
-                <h3 className="text-white text-2xl font-bold mb-2">{service.title}</h3>
-                <p className="text-white text-sm mb-4">{service.caption}</p>
-                <Link
-                  to="/contact"
-                  className="bg-white text-secondary px-4 py-2 rounded-full font-semibold shadow hover:bg-gray-100 transition-colors"
-                >
-                  Let’s Work Together →
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            <img
+              src={service.image}
+              alt={service.title}
+              className="object-cover w-full h-64 group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
+              <h3 className="text-white text-2xl font-bold mb-2">{service.title}</h3>
+              <p className="text-white text-sm mb-4">{service.caption}</p>
+              <Link
+                to="/contact"
+                className="bg-white text-secondary px-4 py-2 rounded-full font-semibold shadow hover:bg-gray-100 transition-colors"
+              >
+                Let’s Work Together →
+              </Link>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
