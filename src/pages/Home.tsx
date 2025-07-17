@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import RealisticModelBanner from '../components/RealisticModelBanner';
 import ServiceCards from '../components/ServiceCards';
 import ProfessionalTeamSection from '../components/ProfessionalTeamSection';
-import ServiceImageGrid from '../components/ServiceImageGrid';  // ✅ NEW IMPORT
+import ServiceImageGrid from '../components/ServiceImageGrid';  // ✅ Import
 
 const Home = () => {
   const testimonials = [
@@ -210,8 +210,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ✅ NEW ServiceImageGrid Section WITH ID */}
-      <section id="services">
+      {/* ✅ NEW ServiceImageGrid Section with ID */}
+      <section id="services" className="py-20 bg-background">
         <ServiceImageGrid />
       </section>
 
