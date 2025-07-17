@@ -210,8 +210,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ✅ NEW ServiceImageGrid Section */}
-      <ServiceImageGrid />
+      {/* ✅ NEW ServiceImageGrid Section WITH ID */}
+      <section id="services">
+        <ServiceImageGrid />
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-secondary text-white text-center">
