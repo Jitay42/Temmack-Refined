@@ -4,67 +4,80 @@ import { motion } from 'framer-motion';
 
 const services = [
   {
-    title: 'Digital & UX Copywriting',
-    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
-    caption: 'Words that convert, UX that guides.'
+    title: 'UX Copywriting',
+    caption: 'Words that guide and convert',
+    image: 'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     title: 'Email Marketing',
-    image: 'https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg',
-    caption: 'Emails that get opened (and sell).'
+    caption: 'Reach inboxes with impact',
+    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     title: 'Content Strategy',
-    image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg',
-    caption: 'Content plans built to rank and convert.'
+    caption: 'Clarity from top to bottom',
+    image: 'https://images.pexels.com/photos/3184191/pexels-photo-3184191.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     title: 'Brand Strategy',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
-    caption: 'Define your voice. Own your story.'
+    caption: 'Shape your voice',
+    image: 'https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     title: 'AI Prompt Systems',
-    image: 'https://images.pexels.com/photos/8386449/pexels-photo-8386449.jpeg',
-    caption: 'Automate smart, stay on-brand.'
+    caption: 'Work faster, stay human',
+    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     title: 'Social Media',
-    image: 'https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg',
-    caption: 'Content that connects and grows followers.'
+    caption: 'Grow with intention',
+    image: 'https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800'
   }
 ];
 
 const ServiceImageGrid = () => {
   return (
     <section id="services" className="py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold text-secondary mb-8">
-          What We Do
-        </h2>
-        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
-          Explore our strategic services. Click any to get in touch about exactly what you need.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <motion.h2
+            className="text-4xl font-bold text-secondary"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            What We Do
+          </motion.h2>
+          <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
+            Practical services that simplify your message and scale your business.
+          </p>
+        </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="overflow-hidden rounded-2xl shadow-lg border border-gray-200 bg-white"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer"
             >
-              <Link to={`/contact?service=${encodeURIComponent(service.title)}`}>
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
-                />
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-secondary">{service.title}</h3>
-                  <p className="text-sm text-gray-600 mt-2">{service.caption}</p>
-                </div>
-              </Link>
+              <img
+                src={service.image}
+                alt={service.title}
+                className="object-cover w-full h-64 group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
+                <h3 className="text-white text-2xl font-bold mb-2">{service.title}</h3>
+                <p className="text-white text-sm mb-4">{service.caption}</p>
+                <Link
+                  to="/contact"
+                  className="bg-white text-secondary px-4 py-2 rounded-full font-semibold shadow hover:bg-gray-100 transition-colors"
+                >
+                  Let’s Work Together →
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
