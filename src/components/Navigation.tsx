@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 
@@ -8,6 +8,7 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,10 +21,10 @@ const Navigation = () => {
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
-      window.location.href = `/#${sectionId}`;
+      navigate(`/#${sectionId}`);
       return;
     }
-    
+
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -66,12 +67,12 @@ const Navigation = () => {
             >
               {t('nav.whoWeAre')}
             </button>
-            <Link
-              to="/services"
+            <button
+              onClick={() => scrollToSection('services')}
               className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
             >
               {t('nav.whatWeDo')}
-            </Link>
+            </button>
             <button
               onClick={() => scrollToSection('philosophy')}
               className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
@@ -108,13 +109,12 @@ const Navigation = () => {
               >
                 {t('nav.whoWeAre')}
               </button>
-              <Link
-                to="/services"
-                onClick={() => setIsOpen(false)}
+              <button
+                onClick={() => scrollToSection('services')}
                 className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
               >
                 {t('nav.whatWeDo')}
-              </Link>
+              </button>
               <button
                 onClick={() => scrollToSection('philosophy')}
                 className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
