@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import RealisticModelBanner from '../components/RealisticModelBanner';
 import ServiceCards from '../components/ServiceCards';
 import ProfessionalTeamSection from '../components/ProfessionalTeamSection';
+import ServiceImageGrid from '../components/ServiceImageGrid';  // ✅ NEW IMPORT
 
 const Home = () => {
   const testimonials = [
@@ -209,7 +210,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Contact Section placeholder */}
+      {/* ✅ NEW ServiceImageGrid Section */}
+      <ServiceImageGrid />
+
+      {/* Contact Section */}
       <section id="contact" className="py-20 bg-secondary text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-6">Ready to Start?</h2>
