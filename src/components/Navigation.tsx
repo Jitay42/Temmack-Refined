@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { HashLink as Link } from 'react-router-hash-link';
+import { useLocation, Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 
@@ -54,16 +54,15 @@ const Navigation = () => {
               {t('nav.home')}
             </Link>
 
-            <Link
+            <HashLink
               smooth
               to="/#about"
               className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
               onClick={closeMenu}
             >
               {t('nav.whoWeAre')}
-            </Link>
+            </HashLink>
 
-            {/* 🔁 Updated What We Do Link to /services */}
             <Link
               to="/services"
               className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
@@ -72,14 +71,14 @@ const Navigation = () => {
               {t('nav.whatWeDo')}
             </Link>
 
-            <Link
+            <HashLink
               smooth
               to="/#philosophy"
               className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
               onClick={closeMenu}
             >
               {t('nav.whyUs')}
-            </Link>
+            </HashLink>
           </div>
 
           {/* Mobile menu button */}
@@ -105,16 +104,15 @@ const Navigation = () => {
                 {t('nav.home')}
               </Link>
 
-              <Link
+              <HashLink
                 smooth
                 to="/#about"
                 onClick={closeMenu}
                 className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
               >
                 {t('nav.whoWeAre')}
-              </Link>
+              </HashLink>
 
-              {/* 🔁 Updated What We Do Link to /services (mobile) */}
               <Link
                 to="/services"
                 onClick={closeMenu}
@@ -123,14 +121,14 @@ const Navigation = () => {
                 {t('nav.whatWeDo')}
               </Link>
 
-              <Link
+              <HashLink
                 smooth
                 to="/#philosophy"
                 onClick={closeMenu}
                 className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
               >
                 {t('nav.whyUs')}
-              </Link>
+              </HashLink>
             </div>
           </div>
         )}
