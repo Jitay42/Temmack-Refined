@@ -63,9 +63,9 @@ const Navigation = () => {
               {t('nav.whoWeAre')}
             </Link>
 
+            {/* 🔁 Updated What We Do Link to /services */}
             <Link
-              smooth
-              to="/#services"
+              to="/services"
               className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
               onClick={closeMenu}
             >
@@ -114,9 +114,9 @@ const Navigation = () => {
                 {t('nav.whoWeAre')}
               </Link>
 
+              {/* 🔁 Updated What We Do Link to /services (mobile) */}
               <Link
-                smooth
-                to="/#services"
+                to="/services"
                 onClick={closeMenu}
                 className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
               >
