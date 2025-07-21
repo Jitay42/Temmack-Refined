@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -12,8 +18,8 @@
   ],
   "redirects": [
     {
-      "source": "https://www.temmack.com.ng",
-      "destination": "https://temmack.com.ng",
+      "source": "https://www.temmack.com.ng/(.*)",
+      "destination": "https://temmack.com.ng/$1",
       "permanent": true
     }
   ],
