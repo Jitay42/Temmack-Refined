@@ -149,7 +149,7 @@ const FAQ = () => {
                 Contact Us
               </a>
               <a
-                href="mailto:hello@temmack.com"
+                href="mailto:info@temmack.com.ng"
                 className="bg-white text-primary border-2 border-primary px-8 py-4 rounded-full font-semibold hover:bg-primary/5 transition-colors"
               >
                 Email Us
