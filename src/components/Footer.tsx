@@ -1,82 +1,63 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Instagram, Phone, MapPin, Mail } from 'lucide-react';
-
-// Keep or remove icons as needed
+import { Facebook, Instagram, Tiktok } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-white">
-      <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-4 gap-12">
-
-        {/* Company Info */}
+    <footer className="bg-[#1b1a19] text-[#f8f1f0] py-12 px-4 lg:px-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Logo and Brief */}
         <div>
-          <img src="/logo/Tmk logo.png" alt="Temmack Logo" className="h-12 mb-4" />
-          <p className="text-gray-300 mb-4">Simplicity That Leaves a Mark</p>
-
-          <div className="space-y-3 text-gray-300 text-sm">
-            <div className="flex items-center space-x-2">
-              <Mail className="w-5 h-5 text-primary" />
-              <a href="mailto:info@temmack.com.ng" className="hover:text-white">
-                info@temmack.com.ng
-              </a>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Phone className="w-5 h-5 text-primary" />
-              <a href="tel:+2349133167253" className="hover:text-white">
-                +234 913 316 7253
-              </a>
-            </div>
-            <div className="flex items-start space-x-2">
-              <MapPin className="w-5 h-5 text-primary mt-1" />
-              <p>3 Association Avenue, Eruwen,
-                <br />Ikorodu, Lagos, Nigeria
-              </p>
-            </div>
-          </div>
+          <h2 className="text-2xl font-bold text-[#cb1010]">Temmack</h2>
+          <p className="mt-2 text-sm">
+            Simplicity that leaves a mark. We help brands gain clarity, drive results, and create meaningful digital experiences.
+          </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h4 className="font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-3 text-gray-300 text-sm">
-            <li><Link to="/" className="hover:text-white">Home</Link></li>
-            <li><Link to="/services" className="hover:text-white">Services</Link></li>
-            <li><Link to="/faq" className="hover:text-white">FAQ</Link></li>
-            <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+          <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
+          <ul className="space-y-2 text-sm">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">What We Do</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/faq">FAQs</a></li>
           </ul>
         </div>
 
-        {/* Services */}
+        {/* Connect With Us */}
         <div>
-          <h4 className="font-semibold mb-4">Services</h4>
-          <ul className="space-y-3 text-gray-300 text-sm">
-            <li>UX & Web Copywriting</li>
-            <li>Email Marketing</li>
-            <li>Content Strategy & SEO</li>
-            <li>Brand Strategy</li>
-            <li>AI Prompt Systems</li>
-            <li>Social Media Strategy</li>
-          </ul>
-        </div>
-
-        {/* Social & Legal */}
-        <div>
-          <h4 className="font-semibold mb-4">Connect With Us</h4>
-          <div className="flex space-x-4 mb-6">
-            {/* Add or adjust social icons as needed */}
+          <h3 className="text-lg font-semibold mb-3">Connect With Us</h3>
+          <div className="flex space-x-4 mt-2">
+            <a
+              href="https://www.facebook.com/share/1FLg8nQce9/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-5 h-5 hover:text-[#cb1010]" />
+            </a>
+            <a
+              href="https://www.instagram.com/temmack_solutions?igsh=a3IyMmJjaTA1eHI0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5 hover:text-[#cb1010]" />
+            </a>
+            <a
+              href="https://tiktok.com/@theaicopyguy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <Tiktok className="w-5 h-5 hover:text-[#cb1010]" />
+            </a>
           </div>
-          <h5 className="font-semibold mb-2">Legal</h5>
-          <ul className="space-y-2 text-gray-300 text-sm">
-            <li><Link to="/privacy" className="hover:text-white">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="hover:text-white">Terms & Conditions</Link></li>
-          </ul>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-700 pt-6 mt-12 text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} Temmack Solutions — Designed with clarity in mind.
+      <div className="border-t border-[#cb1010]/30 mt-10 pt-6 text-center text-sm">
+        &copy; {new Date().getFullYear()} Temmack. All rights reserved.
       </div>
     </footer>
   );
