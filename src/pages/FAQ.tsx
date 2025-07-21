@@ -1,164 +1,78 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { ChevronDown, HelpCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const faqs = [
+  {
+    question: 'What services does Temmack offer?',
+    answer:
+      'Temmack provides a range of services including digital marketing, content strategy, SEO, email marketing, and UX copywriting. Each service is tailored to help businesses grow their online presence effectively.',
+  },
+  {
+    question: 'How do I get started with Temmack?',
+    answer:
+      'Getting started is easy! Just visit our Contact page and fill out the form with your project details. We’ll get back to you promptly with the next steps.',
+  },
+  {
+    question: 'Is Temmack suitable for international clients?',
+    answer:
+      'Absolutely. Temmack is designed to serve clients across Africa, North America, Asia, and Europe. Our team understands diverse markets and can adapt strategies to fit various cultural and business environments.',
+  },
+  {
+    question: 'Can I request a custom service package?',
+    answer:
+      'Yes, we offer flexible service packages based on your unique business needs. You can either select from our standard services or request a tailored plan through our contact form.',
+  },
+];
 
 const FAQ = () => {
-  const { t } = useTranslation();
-  const [openFAQ, setOpenFAQ] = useState<number | null>(0);
-
-  const faqs = [
-    {
-      question: 'What does prompt engineering include?',
-      answer: 'Our prompt engineering service includes custom prompt development, AI workflow optimization, chatbot script creation, GPT tool design, and training on how to maintain your brand voice through AI-generated content. We also provide ongoing optimization and updates as AI technology evolves.'
-    },
-    {
-      question: 'Can I combine services?',
-      answer: 'Absolutely! We often recommend combining services for maximum impact. For example, pairing brand messaging with copywriting, or content strategy with SEO optimization. We\'ll create a custom package that addresses your specific needs and budget.'
-    },
-    {
-      question: 'How soon can I get results?',
-      answer: 'Timeline varies by service. Simple projects like email sequences can be completed in 1-2 weeks, while comprehensive brand messaging or content strategy projects typically take 3-4 weeks. We\'ll provide a detailed timeline during our initial consultation.'
-    },
-    {
-      question: 'Do you work internationally?',
-      answer: 'Yes! We work with clients across Africa, North America, Europe, and Asia. All our services are delivered remotely, and we accommodate different time zones for meetings and consultations.'
-    },
-    {
-      question: 'What\'s included in a brand messaging project?',
-      answer: 'Brand messaging projects include voice and tone guidelines, key messaging frameworks, value proposition development, audience persona refinement, and messaging hierarchy. You\'ll receive a comprehensive brand messaging guide that your entire team can use.'
-    },
-    {
-      question: 'How do you ensure content matches our brand voice?',
-      answer: 'We start every project with a thorough brand discovery process. We analyze your existing content, interview key stakeholders, and create detailed voice guidelines. All content goes through multiple review cycles to ensure perfect alignment with your brand.'
-    },
-    {
-      question: 'What if I\'m not satisfied with the work?',
-      answer: 'We offer unlimited revisions within the project scope to ensure you\'re completely satisfied. If there are fundamental issues, we\'ll work with you to make it right. Our goal is your success, and we stand behind our work.'
-    },
-    {
-      question: 'Do you provide ongoing support after project completion?',
-      answer: 'Yes! We offer retainer packages for ongoing support, including content reviews, strategy updates, and optimization. We also provide training sessions to help your team implement and maintain the strategies we develop.'
-    },
-    {
-      question: 'What industries do you specialize in?',
-      answer: 'We work with SaaS companies, Fintech brands, startups, SMEs, EdTech platforms, and NGOs. Our clarity-first approach works across industries, but we have particular expertise in technology and business services.'
-    },
-    {
-      question: 'How do you measure success?',
-      answer: 'Success metrics vary by project but typically include improved conversion rates, increased engagement, clearer brand perception, and better customer feedback. We establish specific KPIs at the project start and provide measurement recommendations.'
-    }
-  ];
-
-  const toggleFAQ = (index: number) => {
-    setOpenFAQ(openFAQ === index ? null : index);
-  };
-
   return (
-    <div className="min-h-screen bg-background pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <HelpCircle className="w-16 h-16 text-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-bold text-secondary mb-6">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Everything you need to know about working with Temmack Solutions.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <>
+      <Helmet>
+        <title>FAQ – Temmack</title>
+        <meta name="description" content="Frequently asked questions about Temmack’s services, onboarding process, and client support." />
+      </Helmet>
 
-      {/* FAQ Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-                >
-                  <h3 className="text-lg font-semibold text-secondary pr-4">
-                    {faq.question}
-                  </h3>
-                  <ChevronDown
-                    className={`w-5 h-5 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
-                      openFAQ === index ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                
-                <AnimatePresence>
-                  {openFAQ === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-6">
-                        <p className="text-gray-600 leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+      <section className="pt-28 pb-16 px-4 md:px-20 bg-background text-foreground">
+        <div className="text-center mb-14">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            We’ve compiled answers to common questions about working with Temmack. If you need further help, don’t hesitate to reach out.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto space-y-10">
+          {faqs.map((faq, index) => (
+            <div key={index}>
+              <h2 className="text-xl font-semibold mb-2">{faq.question}</h2>
+              <p className="text-muted-foreground">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-20 text-center space-y-6">
+          <h3 className="text-2xl font-semibold">Still have questions?</h3>
+          <p className="text-muted-foreground">We’re happy to help. Reach out to us directly.</p>
+
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Link
+              to="/contact"
+              className="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
+            >
+              Contact Us
+            </Link>
+            <a
+              href="mailto:info@temmack.com.ng"
+              className="flex items-center justify-center gap-2 bg-white text-primary border-2 border-primary px-8 py-4 rounded-full font-semibold hover:bg-primary/5 transition-colors"
+            >
+              <Mail className="w-5 h-5" />
+              Email Us
+            </a>
           </div>
         </div>
       </section>
-
-      {/* Contact CTA */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-primary/5 rounded-3xl p-8 md:p-12"
-          >
-            <h2 className="text-3xl font-bold text-secondary mb-4">
-              Still have questions?
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              We're here to help. Reach out and we'll get back to you within 24 hours.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
-              >
-                Contact Us
-              </a>
-              <a
-                href="mailto:info@temmack.com.ng"
-                className="bg-white text-primary border-2 border-primary px-8 py-4 rounded-full font-semibold hover:bg-primary/5 transition-colors"
-              >
-                Email Us
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+    </>
   );
 };
 
