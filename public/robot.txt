@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://temmack.com.ng/sitemap.xml
