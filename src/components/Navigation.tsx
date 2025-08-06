@@ -69,6 +69,18 @@ const Navigation = () => {
                         >
                             {t('nav.whatWeDo')}
                         </Link>
+                        <Link
+                            to="/faq"
+                            className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                        >
+                            {t('nav.faq')}
+                        </Link>
+                        <Link
+                            to="/contact"
+                            className="px-6 py-3 rounded-full bg-transparent border border-transparent text-secondary font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                        >
+                            {t('nav.contactUs')}
+                        </Link>
 
                         {/* not defined yet */}
                         {/* <button
@@ -118,6 +130,20 @@ const Navigation = () => {
                                 className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
                             >
                                 {t('nav.whatWeDo')}
+                            </Link>
+                            <Link
+                                to="/faq"
+                                onClick={closeSideBar}
+                                className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
+                            >
+                                {t('nav.faq')}
+                            </Link>
+                            <Link
+                                to="/contact"
+                                onClick={closeSideBar}
+                                className="block w-full text-left py-3 px-4 text-secondary font-semibold hover:bg-primary/10 hover:text-primary transition-colors rounded-lg"
+                            >
+                                {t('nav.contactUs')}
                             </Link>
 
                             {/* not defined yet */}
