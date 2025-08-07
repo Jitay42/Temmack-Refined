@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navigation from './components/Navigation';
@@ -9,6 +8,34 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
+
+import './i18n';
+import About from './pages/About';
+import Insights from './pages/Insights';
+
+function App() {
+    return (
+        <HelmetProvider>
+            <Router>
+                <div className="min-h-screen bg-background">
+                    <Navigation />
+                    <main>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/services" element={<Services />} />
+                            <Route path="/insights" element={<Insights />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/faq" element={<FAQ />} />
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </main>
+                    <Newsletter />
+                    <Footer />
+                </div>
+            </Router>
+        </HelmetProvider>
+    );
 
 function App() {
   return (
@@ -52,6 +79,7 @@ function App() {
       </Router>
     </HelmetProvider>
   );
+
 }
 
 export default App;
