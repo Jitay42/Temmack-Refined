@@ -1,13 +1,9 @@
-
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import RealisticModelBanner from '../components/RealisticModelBanner';
 import ServiceCards from '../components/ServiceCards';
 import ProfessionalTeamSection from '../components/ProfessionalTeamSection';
-import ServiceImageGrid from '../components/ServiceImageGrid';
 
 const Home = () => {
     const testimonials = [
@@ -41,22 +37,6 @@ const Home = () => {
         <div className="min-h-screen">
             {/* Banner */}
             <RealisticModelBanner />
-
-  return (
-    <div className="min-h-screen">
-      <Helmet>
-        <title>Temmack – Result-Driven Digital Marketing & Strategy Agency</title>
-        <meta name="description" content="Unlock clarity and growth with Temmack Solutions. We help brands scale using strategy, copywriting, SEO, performance marketing, and automation. Simplicity that leaves a mark." />
-        <meta name="keywords" content="digital marketing, copywriting, SEO services, automation, Temmack Solutions, marketing agency Nigeria, growth marketing, AI prompt engineering" />
-        <meta property="og:title" content="Temmack – Result-Driven Digital Marketing & Strategy Agency" />
-        <meta property="og:description" content="Unlock clarity and growth with Temmack Solutions. We help brands scale using strategy, copywriting, SEO, performance marketing, and automation." />
-        <meta property="og:url" content="https://www.temmack.com.ng" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.temmack.com.ng/assets/og-banner.jpg" />
-      </Helmet>
-
-      {/* Banner */}
-      <RealisticModelBanner />
 
             {/* Hero Section */}
             <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-accent/5">
@@ -98,7 +78,6 @@ const Home = () => {
 
             {/* Service Cards */}
             <ServiceCards />
-      
             {/* About Section */}
             <section id="about" className="py-20 bg-background">
                 <div className="max-w-5xl mx-auto px-4 text-center">
@@ -301,15 +280,6 @@ const Home = () => {
             </section>
         </div>
     );
-      {/* About Section */}
-      {/* ... All the rest of your content remains the same */}
-      {/* ... Team, Philosophy, Testimonials, Services, Contact Section */}
-      <ProfessionalTeamSection />
-      <section id="services" className="py-20 bg-background">
-        <ServiceImageGrid />
-      </section>
-    </div>
-  );
 };
 
 export default Home;
