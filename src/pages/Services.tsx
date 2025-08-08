@@ -1,245 +1,149 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ArrowRight, MessageCircle, Target, Users, Zap, Search, Mail } from 'lucide-react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
-const Services = () => {
-  const { t } = useTranslation();
-  const [activeService, setActiveService] = useState(0);
+interface Service {
+    title: string;
+    category: string;
+    shortDesc: string;
+    fullDesc: string;
+}
 
-  const services = [
+const services: Service[] = [
     {
-      icon: MessageCircle,
-      title: t('services.digitalCopywriting.title'),
-      description: t('services.digitalCopywriting.description'),
-      features: ['Website Copy', 'UX Microcopy', 'SaaS Product Copy', 'Landing Pages', 'Brand Messaging'],
-      color: 'bg-primary'
+        title: 'Digital & UX Copywriting',
+        category: 'Copy & Messaging',
+        shortDesc:
+            'Website Copy, Product Copy, Microcopy, and Brand Messaging.',
+        fullDesc:
+            "We don't just write — we engineer words that sell. From crisp website copy to strategic UX microcopy and persuasive landing pages, our writing aligns with your audience’s psychology, helping you convert readers into buyers without sounding robotic or generic.",
     },
     {
-      icon: Mail,
-      title: t('services.emailMarketing.title'),
-      description: t('services.emailMarketing.description'),
-      features: ['Funnel Strategy', 'Email Copy', 'Automation Setup', 'Cold Outreach'],
-      color: 'bg-accent'
+        title: 'Email Marketing',
+        category: 'Automation',
+        shortDesc: 'Flows, Campaigns, Drip Sequences, and Retention Emails.',
+        fullDesc:
+            'Emails that don’t go to spam or straight to trash. We build behavioral email flows and launch sequences that feel personal, timely, and drive actual ROI. Ideal for nurturing leads, recovering carts, and building long-term brand trust.',
     },
     {
-      icon: Target,
-      title: t('services.contentStrategy.title'),
-      description: 'Blog SEO, Keyword Research, Content Strategy, SEO Audits',
-      features: ['Blog SEO', 'Keyword Research', 'Content Strategy', 'SEO Audits'],
-      color: 'bg-primary'
+        title: 'Content Strategy',
+        category: 'Growth & Positioning',
+        shortDesc:
+            'SEO articles, Funnel content, Brand pillars, Messaging plans.',
+        fullDesc:
+            'We help you stop publishing fluff. Our content strategies are built for clarity, structure, and ranking — not just likes. We align every word with your brand voice, customer journey, and long-term goals.',
     },
     {
-      icon: Users,
-      title: t('services.brandStrategy.title'),
-      description: t('services.brandStrategy.description'),
-      features: ['Messaging Clarity', 'Voice Development', 'Strategic Audits'],
-      color: 'bg-accent'
+        title: 'Brand Strategy',
+        category: 'Identity & Voice',
+        shortDesc: 'Messaging blueprint, Brand story, Core voice & tone.',
+        fullDesc:
+            'We dig into your essence — what you do, why it matters, and how to say it. Then we shape your tone of voice, storytelling style, and brand foundation so you sound like *you*, not everyone else.',
     },
     {
-      icon: Zap,
-      title: t('services.aiPrompts.title'),
-      description: t('services.aiPrompts.description'),
-      features: ['Prompt Workflows', 'Chatbot Scripts', 'GPT Tool Design'],
-      color: 'bg-primary'
+        title: 'AI Prompt Systems',
+        category: 'Automation & Scale',
+        shortDesc:
+            'Custom AI systems for content, copy, support, and marketing.',
+        fullDesc:
+            'We build practical prompt systems that help your team create faster, sell smarter, and automate intelligently — while staying on-brand. Ideal for solopreneurs, startups, or growing teams tired of repetitive writing and clunky tools.',
     },
     {
-      icon: Search,
-      title: t('services.socialMedia.title'),
-      description: t('services.socialMedia.description'),
-      features: ['Ad Copy', 'Campaign Captions', 'Optimization'],
-      color: 'bg-accent'
-    }
-  ];
+        title: 'Social Media',
+        category: 'Visibility & Engagement',
+        shortDesc:
+            'Content calendars, Copy, Design structure, and Engagement flows.',
+        fullDesc:
+            'We help you stop posting randomly. Our systems guide your content flow, brand tone, and posting rhythm to build loyal followers and generate real conversations — not just vanity metrics.',
+    },
+];
 
-  return (
-    <div className="min-h-screen bg-background pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold text-secondary mb-6"
-          >
-            {t('services.title')}
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-          >
-            Strategic solutions that transform how you communicate with your audience.
-          </motion.p>
-        </div>
-      </section>
+const ServicesSection = () => {
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const navigate = useNavigate();
 
-      {/* Services Carousel */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Service Navigation */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {services.map((service, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveService(index)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeService === index
-                    ? 'bg-primary text-white shadow-lg'
-                    : 'bg-white text-secondary hover:bg-primary/10 border border-gray-200'
-                }`}
-              >
-                {service.title}
-              </button>
-            ))}
-          </div>
+    const toggleCard = (index: number) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
 
-          {/* Active Service Display */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeService}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-            >
-              {/* Content */}
-              <div>
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className={`w-16 h-16 rounded-2xl ${services[activeService].color} flex items-center justify-center`}>
-                    {React.createElement(services[activeService].icon, { className: "w-8 h-8 text-white" })}
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-secondary">
-                      {services[activeService].title}
-                    </h2>
-                  </div>
+    const handleCTA = () => {
+        navigate('/contact');
+    };
+
+    return (
+        <section id="services" className="py-20 bg-gray-50">
+            {' '}
+            <div className="max-w-6xl mx-auto px-6">
+                {' '}
+                <div className="text-center mb-12">
+                    {' '}
+                    <motion.h2
+                        className="text-4xl font-bold text-gray-900"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        {' '}
+                        What We Do{' '}
+                    </motion.h2>{' '}
+                    <p className="mt-4 text-gray-600 text-lg max-w-xl mx-auto">
+                        {' '}
+                        Strategic services that simplify how you communicate,
+                        scale, and grow.{' '}
+                    </p>{' '}
                 </div>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {services.map((service, index) => (
+                        <motion.div
+                            key={index}
+                            layout
+                            onClick={() => toggleCard(index)}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                            className={`cursor-pointer bg-white border hover:border-red-500 rounded-2xl shadow-lg p-6 transition-all ${
+                                activeIndex === index
+                                    ? 'ring-2 ring-red-500'
+                                    : ''
+                            }`}
+                        >
+                            <h3 className="text-xl font-bold text-gray-800 mb-1">
+                                {service.title}
+                            </h3>
+                            <span className="text-sm text-red-500 font-medium">
+                                {service.category}
+                            </span>
+                            <p className="text-gray-600 mt-2">
+                                {service.shortDesc}
+                            </p>
 
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  {services[activeService].description}
-                </p>
-
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  {services[activeService].features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-secondary font-medium">{feature}</span>
-                    </div>
-                  ))}
+                            <AnimatePresence>
+                                {activeIndex === index && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="mt-4"
+                                    >
+                                        <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                                            {service.fullDesc}
+                                        </p>
+                                        <button
+                                            onClick={handleCTA}
+                                            className="bg-red-500 text-white px-5 py-2 rounded-full font-semibold shadow hover:bg-red-600"
+                                        >
+                                            Let’s Work Together →
+                                        </button>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
+                    ))}
                 </div>
-
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg group"
-                >
-                  Get Started
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-
-              {/* Visual */}
-              <div className={`relative h-96 rounded-3xl ${services[activeService].color} overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/10"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {React.createElement(services[activeService].icon, { className: "w-32 h-32 text-white/30" })}
-                </div>
-                <div className="absolute bottom-8 left-8 right-8">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6">
-                    <h3 className="font-semibold text-secondary mb-2">
-                      {services[activeService].title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">
-                      Transform your communication strategy
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-secondary mb-6">
-              How We Work
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              A strategic approach that ensures every solution is tailored to your unique needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                step: '01',
-                title: 'Discovery',
-                description: 'We dive deep into your business, audience, and goals to understand what makes you unique.'
-              },
-              {
-                step: '02',
-                title: 'Strategy',
-                description: 'We develop a custom approach based on your specific needs and market position.'
-              },
-              {
-                step: '03',
-                title: 'Execution',
-                description: 'We implement the strategy with precision, keeping you involved every step of the way.'
-              }
-            ].map((phase, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto">
-                  {phase.step}
-                </div>
-                <h3 className="text-xl font-semibold text-secondary mb-4">{phase.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{phase.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-secondary text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold mb-6">
-              Ready to transform your communication?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Let's discuss which service will have the biggest impact on your business.
-            </p>
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg group"
-            >
-              Start Your Project
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-    </div>
-  );
+            </div>
+        </section>
+    );
 };
 
-export default Services;
+export default ServicesSection;

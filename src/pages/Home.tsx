@@ -78,7 +78,6 @@ const Home = () => {
 
             {/* Service Cards */}
             <ServiceCards />
-
             {/* About Section */}
             <section id="about" className="py-20 bg-background">
                 <div className="max-w-5xl mx-auto px-4 text-center">

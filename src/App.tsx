@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
+
 import './i18n';
 import About from './pages/About';
 import Insights from './pages/Insights';
