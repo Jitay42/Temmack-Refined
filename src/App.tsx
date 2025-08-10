@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound';
 import './i18n';
 import About from './pages/About';
 import Insights from './pages/Insights';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
             <Router>
                 <div className="min-h-screen bg-background">
                     <Navigation />
+                    <ScrollToTop />
                     <main>
                         <Routes>
                             <Route path="/" element={<Home />} />
