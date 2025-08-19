@@ -34,7 +34,7 @@ const Home = () => {
     ];
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen max-w-screen overflow-x-hidden">
             {/* Banner */}
             <RealisticModelBanner />
 
