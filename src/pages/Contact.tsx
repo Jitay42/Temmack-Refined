@@ -339,7 +339,7 @@ const Contact = () => {
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="lg:col-span-2 scroll-mt-24"
+                            className="lg:col-span-2 scroll-mt-16 sm:scroll-mt-20 md:scroll-mt-24"
                             id="contact-form"
                             ref={contactFormRef}
                         >
