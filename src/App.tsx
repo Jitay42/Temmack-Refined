@@ -1,43 +1,53 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-import Newsletter from './components/Newsletter';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import FAQ from './pages/FAQ';
-import NotFound from './pages/NotFound';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
+import Newsletter from "./components/Newsletter";
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
+import NotFound from "./pages/NotFound";
 
-import './i18n';
-import About from './pages/About';
-import Insights from './pages/Insights';
-import ScrollToTop from './components/ScrollToTop';
+import "./i18n";
+import About from "./pages/About";
+import Insights from "./pages/Insights";
+import ScrollToTop from "./components/ScrollToTop";
+import MaintenancePage from "./pages/MaintenancePage";
 
 function App() {
+  const isMaintenanceMode = import.meta.env.VITE_MAINTENANCE_MODE === "true";
+
+  if (isMaintenanceMode) {
     return (
-        <HelmetProvider>
-            <Router>
-                <div className="min-h-screen bg-background">
-                    <Navigation />
-                    <ScrollToTop />
-                    <main>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/about" element={<About />} />
-                            <Route path="/insights" element={<Insights />} />
-                            <Route path="/services" element={<Services />} />
-                            <Route path="/contact" element={<Contact />} />
-                            <Route path="/faq" element={<FAQ />} />
-                            <Route path="*" element={<NotFound />} />
-                        </Routes>
-                    </main>
-                    <Newsletter />
-                    <Footer />
-                </div>
-            </Router>
-        </HelmetProvider>
+      <HelmetProvider>
+        <MaintenancePage />
+      </HelmetProvider>
     );
+  }
+  return (
+    <HelmetProvider>
+      <Router>
+        <div className='min-h-screen bg-background'>
+          <Navigation />
+          <ScrollToTop />
+          <main>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/insights' element={<Insights />} />
+              <Route path='/services' element={<Services />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/faq' element={<FAQ />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </main>
+          <Newsletter />
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
+  );
 }
 
 export default App;
